@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spy Helper - Codenames Assistant</title>
+    <link rel="stylesheet" href="styles.css">
+    <meta name="description" content="Spy Helper is your ultimate assistant for the Codenames game. Generate clues and enhance your gameplay experience.">
+    <meta name="keywords" content="Codenames, game assistant, clue generator, Spy Helper">
+    <meta name="author" content="Sushil Kamble">
+    <meta property="og:title" content="Spy Helper - Codenames Assistant">
+    <meta property="og:description" content="Spy Helper is your ultimate assistant for the Codenames game. Generate clues and enhance your gameplay experience.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sushil.kamble.vercel.app">
+<body>
+    <nav>
+        <h1>Spy Helper</h1>
+        <p>Your Codenames Game Assistant</p>
+    </nav>
+
+    <main>
+        <div class="form-container">
+            <form id="clueForm">
+                <input type="text" id="words" placeholder="Enter words separated by spaces (e.g., peak snow sky)" required>
+                <button type="submit">Generate Clues</button>
+            </form>
+        </div>
+        <div id="results">
+            <p>Enter words separated by spaces that you think might be related. Spy Helper will generate 10 potential clues for your words.</p>
+        </div>
+    </main>
+
+    <footer>
+        Created by <a href="https://sushilkamble.vercel.app" target="_blank" rel="noopener noreferrer">Sushil Kamble</a>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

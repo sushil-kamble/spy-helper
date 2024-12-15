@@ -25,24 +25,33 @@ document.getElementById("clueForm").addEventListener("submit", async (e) => {
       resultsDiv.innerHTML = "No clues generated. Please try different words.";
     } else {
       resultsDiv.innerHTML = `
-        <table>
-          ${clues
-            .map((clue) => {
-              const [clueText, description] = clue.split(":");
-              return `
-                <tr>
-                  <td class="clue">${clueText.trim()}</td>
-                  <td class="description">${description.trim()}</td>
-                </tr>
-              `;
-            })
-            .join("")}
-        </table>
-      `;
+                <h4>Clues for ${clues.length === 1 ? "word" : "words"} 
+                "${words
+                  .split("\n")
+                  .map((word) => word.trim())
+                  .join('", "')}"
+                </h4>
+                
+                <table>
+                    ${clues
+                      .map((clue) => {
+                        const [clueText, description] = clue.split(":");
+                        return `
+                                <tr>
+                                    <td class="clue">${clueText.trim()}</td>
+                                    <td class="description">${description.trim()}</td>
+                                </tr>
+                            `;
+                      })
+                      .join("")}
+                </table>
+            `;
     }
+    document.getElementById("words").value = ""; // Clear input on success
   } catch (error) {
     console.error("Error fetching clues:", error);
     resultsDiv.innerHTML = `Error: ${error.message}`;
     resultsDiv.classList.add("error");
+    document.getElementById("words").value = ""; // Clear input on error
   }
 });

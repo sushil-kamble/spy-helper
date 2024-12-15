@@ -2,15 +2,11 @@ document.getElementById('clueForm').addEventListener('submit', async (e) => {
   e.preventDefault();
   const words = document.getElementById('words').value;
   const resultsDiv = document.getElementById('results');
-  console.log(window.location.hostname);
 
   try {
     resultsDiv.innerHTML = 'Loading...';
     resultsDiv.classList.remove('error');
-    const isProd = window.location.hostname.includes('spy-helper.onrender');
-    const apiUrl = isProd
-      ? 'https://spy-helper.onrender.com/api/generate-clues'
-      : 'http://localhost:3000/api/generate-clues';
+    const apiUrl = 'https://spy-helper.onrender.com/api/generate-clues';
     const response = await fetch(apiUrl, {
       method: 'POST',
       headers: {

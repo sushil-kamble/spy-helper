@@ -84,4 +84,4 @@ const server = serve({
   },
 });
 
-console.log(`Listening on http://localhost:${server.port}`);
+console.log(`Server is running on port ${server.port}`);

@@ -20,25 +20,29 @@ Spy Helper is a web application designed to assist players of the Codenames game
 ## How to install this
 
 1. Clone the repository:
-    ```bash
-    git clone <repository-url>
-    cd gemini
-    ```
+
+   ```bash
+   git clone <repository-url>
+   cd gemini
+   ```
 
 2. Install dependencies:
-    ```bash
-    bun install
-    ```
+
+   ```bash
+   bun install
+   ```
 
 3. Create a `.env` file and add your Google Generative AI API key:
-    ```env
-    GEMINI_API_KEY=your_api_key_here
-    ```
+
+   ```env
+   GEMINI_API_KEY=your_api_key_here
+   ```
 
 4. Run the application:
-    ```bash
-    bun run index.ts
-    ```
+
+   ```bash
+   bun run index.ts
+   ```
 
 5. Open your browser and navigate to `http://localhost:3000` to use the application.
 

@@ -1,11 +1,11 @@
-import dotenv from "dotenv";
-import { GoogleGenerativeAI } from "@google/generative-ai";
-import { serve } from "bun";
+import dotenv from 'dotenv';
+import { GoogleGenerativeAI } from '@google/generative-ai';
+import { serve } from 'bun';
 
 dotenv.config();
 
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY!);
-const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash-exp" });
+const model = genAI.getGenerativeModel({ model: 'gemini-2.0-flash-exp' });
 
 const server = serve({
   port: 3000,
@@ -13,17 +13,17 @@ const server = serve({
     const url = new URL(req.url);
     // Add CORS headers for all responses
     const corsHeaders = {
-      "Access-Control-Allow-Origin": "*",
-      "Access-Control-Allow-Headers": "Content-Type",
-      "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Headers': 'Content-Type',
+      'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
     };
 
     // Handle CORS preflight requests
-    if (req.method === "OPTIONS") {
+    if (req.method === 'OPTIONS') {
       return new Response(null, { headers: corsHeaders });
     }
 
-    if (req.method === "POST" && url.pathname === "/api/generate-clues") {
+    if (req.method === 'POST' && url.pathname === '/api/generate-clues') {
       try {
         const body = await req.json();
         const words = body.words;
@@ -65,19 +65,19 @@ const server = serve({
         return new Response(JSON.stringify({ clues: responseText }), {
           headers: {
             ...corsHeaders,
-            "Content-Type": "application/json",
+            'Content-Type': 'application/json',
           },
         });
       } catch (error) {
-        console.error("Error generating clues:", error);
-        return new Response("Internal Server Error", {
+        console.error('Error generating clues:', error);
+        return new Response('Internal Server Error', {
           status: 500,
           headers: corsHeaders,
         });
       }
     }
 
-    return new Response("Not Found", {
+    return new Response('Not Found', {
       status: 404,
       headers: corsHeaders,
     });

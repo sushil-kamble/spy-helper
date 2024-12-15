@@ -1,15 +1,15 @@
-document.getElementById("clueForm").addEventListener("submit", async (e) => {
+document.getElementById('clueForm').addEventListener('submit', async (e) => {
   e.preventDefault();
-  const words = document.getElementById("words").value;
-  const resultsDiv = document.getElementById("results");
+  const words = document.getElementById('words').value;
+  const resultsDiv = document.getElementById('results');
 
   try {
-    resultsDiv.innerHTML = "Loading...";
-    resultsDiv.classList.remove("error");
-    const response = await fetch("http://localhost:3000/api/generate-clues", {
-      method: "POST",
+    resultsDiv.innerHTML = 'Loading...';
+    resultsDiv.classList.remove('error');
+    const response = await fetch('http://localhost:3000/api/generate-clues', {
+      method: 'POST',
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify({ words }),
     });
@@ -19,15 +19,15 @@ document.getElementById("clueForm").addEventListener("submit", async (e) => {
     }
 
     const data = await response.json();
-    const clues = data.clues.split("\n").filter((line) => line.trim());
+    const clues = data.clues.split('\n').filter((line) => line.trim());
 
     if (clues.length === 0) {
-      resultsDiv.innerHTML = "No clues generated. Please try different words.";
+      resultsDiv.innerHTML = 'No clues generated. Please try different words.';
     } else {
       resultsDiv.innerHTML = `
-                <h4>Clues for ${clues.length === 1 ? "word" : "words"} 
+                <h4>Clues for ${clues.length === 1 ? 'word' : 'words'} 
                 "${words
-                  .split("\n")
+                  .split('\n')
                   .map((word) => word.trim())
                   .join('", "')}"
                 </h4>
@@ -35,7 +35,7 @@ document.getElementById("clueForm").addEventListener("submit", async (e) => {
                 <table>
                     ${clues
                       .map((clue) => {
-                        const [clueText, description] = clue.split(":");
+                        const [clueText, description] = clue.split(':');
                         return `
                                 <tr>
                                     <td class="clue">${clueText.trim()}</td>
@@ -43,15 +43,15 @@ document.getElementById("clueForm").addEventListener("submit", async (e) => {
                                 </tr>
                             `;
                       })
-                      .join("")}
+                      .join('')}
                 </table>
             `;
     }
-    document.getElementById("words").value = ""; // Clear input on success
+    document.getElementById('words').value = ''; // Clear input on success
   } catch (error) {
-    console.error("Error fetching clues:", error);
+    console.error('Error fetching clues:', error);
     resultsDiv.innerHTML = `Error: ${error.message}`;
-    resultsDiv.classList.add("error");
-    document.getElementById("words").value = ""; // Clear input on error
+    resultsDiv.classList.add('error');
+    document.getElementById('words').value = ''; // Clear input on error
   }
 });

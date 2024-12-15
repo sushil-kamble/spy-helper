@@ -2,6 +2,7 @@ document.getElementById('clueForm').addEventListener('submit', async (e) => {
   e.preventDefault();
   const words = document.getElementById('words').value;
   const resultsDiv = document.getElementById('results');
+  console.log(window.location.hostname);
 
   try {
     resultsDiv.innerHTML = 'Loading...';

@@ -5,6 +5,7 @@ document.getElementById("clueForm").addEventListener("submit", async (e) => {
 
   try {
     resultsDiv.innerHTML = "Loading...";
+    resultsDiv.classList.remove("error");
     const response = await fetch("http://localhost:3000/api/generate-clues", {
       method: "POST",
       headers: {
@@ -12,6 +13,10 @@ document.getElementById("clueForm").addEventListener("submit", async (e) => {
       },
       body: JSON.stringify({ words }),
     });
+
+    if (!response.ok) {
+      throw new Error(`Server error: ${response.statusText}`);
+    }
 
     const data = await response.json();
     const clues = data.clues.split("\n").filter((line) => line.trim());
@@ -36,6 +41,8 @@ document.getElementById("clueForm").addEventListener("submit", async (e) => {
       `;
     }
   } catch (error) {
+    console.error("Error fetching clues:", error);
     resultsDiv.innerHTML = `Error: ${error.message}`;
+    resultsDiv.classList.add("error");
   }
 });

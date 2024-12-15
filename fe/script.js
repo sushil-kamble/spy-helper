@@ -7,7 +7,11 @@ document.getElementById('clueForm').addEventListener('submit', async (e) => {
   try {
     resultsDiv.innerHTML = 'Loading...';
     resultsDiv.classList.remove('error');
-    const response = await fetch('http://localhost:3000/api/generate-clues', {
+    const isProd = window.location.hostname.includes('spy-helper.onrender');
+    const apiUrl = isProd
+      ? 'https://spy-helper.onrender.com/api/generate-clues'
+      : 'http://localhost:3000/api/generate-clues';
+    const response = await fetch(apiUrl, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

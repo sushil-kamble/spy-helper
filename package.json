@@ -3,13 +3,15 @@
   "module": "index.ts",
   "type": "module",
   "scripts": {
-    "dev": "bun --watch run index.ts"
+    "dev": "bun --watch run index.ts",
+    "lint": "bun prettier . --write"
   },
   "devDependencies": {
     "@tailwindcss/cli": "^4.0.0-beta.7",
     "@types/bun": "latest",
     "dotenv": "^16.4.7",
     "prettier": "3.4.2",
+    "prettier-plugin-tailwindcss": "^0.6.9",
     "tailwindcss": "^4.0.0-beta.7"
   },
   "peerDependencies": {

@@ -2,11 +2,17 @@ document.getElementById('clueForm').addEventListener('submit', async (e) => {
   e.preventDefault();
   const words = document.getElementById('words').value;
   const resultsDiv = document.getElementById('results');
+  const submitButton = document.querySelector('button[type="submit"]');
 
   try {
-    resultsDiv.innerHTML = 'Loading...';
+    // Update button text and disable it
+    submitButton.innerHTML = 'Generating clues...';
+    submitButton.disabled = true;
+
+    resultsDiv.innerHTML = 'Generating clues...';
     resultsDiv.classList.remove('error');
     resultsDiv.classList.add('text-gray-700', 'font-medium', 'mt-4');
+
     const apiUrl = 'https://spy-helper.onrender.com/api/generate-clues';
     const response = await fetch(apiUrl, {
       method: 'POST',
@@ -60,5 +66,9 @@ document.getElementById('clueForm').addEventListener('submit', async (e) => {
       'mt-4'
     );
     document.getElementById('words').value = ''; // Clear input on error
+  } finally {
+    // Restore original button text and enable it
+    submitButton.innerHTML = 'Generate Clues';
+    submitButton.disabled = false;
   }
 });

@@ -22,33 +22,33 @@
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://sushil.kamble.vercel.app" />
   </head>
-  <body class="flex flex-col bg-gray-100 text-gray-900 min-h-screen">
+  <body class="flex min-h-screen flex-col bg-gray-100 text-gray-900">
     <nav class="bg-primary p-4">
       <div class="container mx-auto">
-        <h1 class="text-xl md:text-3xl font-bold text-white">Spy Helper</h1>
+        <h1 class="text-xl font-bold text-white md:text-3xl">Spy Helper</h1>
         <p class="text-xl text-white">Your Codenames Game Assistant</p>
       </div>
     </nav>
 
-    <main class="grow container mx-auto p-4">
-      <div class="bg-white shadow-md rounded-lg p-6">
+    <main class="container mx-auto grow p-4">
+      <div class="rounded-lg bg-white p-6 shadow-md">
         <form id="clueForm" class="space-y-4">
           <input
             type="text"
             id="words"
-            class="w-full p-2 border border-gray-300 rounded"
+            class="w-full rounded border border-gray-300 p-2"
             placeholder="Enter words separated by spaces (e.g., peak snow sky)"
             required
           />
           <button
             type="submit"
-            class="w-full bg-primary text-white p-2 rounded hover:bg-primary/90 transition ease-in duration-300 cursor-pointer"
+            class="bg-primary disabled:bg-primary/80 hover:bg-primary/90 w-full cursor-pointer rounded p-2 text-white transition duration-300 ease-in disabled:cursor-not-allowed"
           >
             Generate Clues
           </button>
         </form>
       </div>
-      <div id="results" class="mt-6 bg-white shadow-md rounded-lg p-6">
+      <div id="results" class="mt-6 rounded-lg bg-white p-6 shadow-md">
         <p class="text-gray-700">
           Enter words separated by spaces that you think might be related. Spy
           Helper will generate 10 potential clues for your words.
@@ -56,7 +56,7 @@
       </div>
     </main>
 
-    <footer class="bg-primary text-white p-4 mt-6">
+    <footer class="bg-primary mt-6 p-4 text-white">
       <div class="container mx-auto text-center">
         Created by
         <a

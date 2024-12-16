@@ -41,7 +41,8 @@ Spy Helper is a web application designed to assist players of the Codenames game
 4. Run the application:
 
    ```bash
-   bun run index.ts
+   bun run index.ts # for running bun server
+   npx @tailwindcss/cli -i fe/styles.css -o fe/output.css --watch # for running tailwindcss
    ```
 
 5. Open your browser and navigate to `http://localhost:3000` to use the application.

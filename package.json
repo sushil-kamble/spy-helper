@@ -6,9 +6,11 @@
     "dev": "bun --watch run index.ts"
   },
   "devDependencies": {
+    "@tailwindcss/cli": "^4.0.0-beta.7",
     "@types/bun": "latest",
     "dotenv": "^16.4.7",
-    "prettier": "3.4.2"
+    "prettier": "3.4.2",
+    "tailwindcss": "^4.0.0-beta.7"
   },
   "peerDependencies": {
     "typescript": "^5.0.0"

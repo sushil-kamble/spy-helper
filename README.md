@@ -2,7 +2,7 @@
 
 [![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/sushil-kamble/spy-helper)
 
-[Live Demo - https://spy-helper.onrender.com/](https://spy-helper.onrender.com/)
+[Live Demo - https://spy-helper.onrender.com](https://spy-helper.onrender.com)
 
 ## What is this project?
 
